@@ -24,14 +24,14 @@
 #define LED1 0 // placeholder
 #define LED2 0
 #define LED3 0
-#define YETIHEAD1 27
-#define YETIHEAD2 29
-#define YETIHEAD3 31
-#define YETIHEAD4 33
-#define YETIHEAD5 35
-#define YETIHEAD6 37
-#define YETIHEAD7 39
-#define YETIHEAD8 41
+// #define YETIHEAD1 1
+// #define YETIHEAD2 2
+// #define YETIHEAD3 3
+#define YETIHEAD4 4
+#define YETIHEAD5 5
+#define YETIHEAD6 6
+#define YETIHEAD7 7
+#define YETIHEAD8 8
 
 USBJoystick joystick;
 
@@ -60,9 +60,9 @@ void setup() {
     pinMode(WR2, INPUT_PULLUP);
     pinMode(BL2, INPUT_PULLUP);
     pinMode(BR2, INPUT_PULLUP);
-    pinMode(YETIHEAD1, OUTPUT);
-    pinMode(YETIHEAD2, OUTPUT);
-    pinMode(YETIHEAD3, OUTPUT);
+    // pinMode(YETIHEAD1, OUTPUT);
+    // pinMode(YETIHEAD2, OUTPUT);
+    // pinMode(YETIHEAD3, OUTPUT);
     pinMode(YETIHEAD4, OUTPUT);
     pinMode(YETIHEAD5, OUTPUT);
     pinMode(YETIHEAD6, OUTPUT);
@@ -178,46 +178,62 @@ void loop() {
         bitTwiddler &= ~(1UL << 17);
     }
 
-    if (digitalRead(YETIHEAD1) == HIGH) {  // Button pressed (since it's pulled up by default)
+    // if (digitalRead(YETIHEAD1) == HIGH) {  // Button pressed (since it's pulled up by default)
+    //     bitTwiddler |= (1UL << 18);
+    //     Serial.println("Dial1 On");
+    // } else {
+    //     bitTwiddler &= ~(1UL << 18);
+    //     Serial.println("Dial1 Off");
+    // }
+    // if (digitalRead(YETIHEAD2) == HIGH) {  // Button pressed (since it's pulled up by default)
+    //     bitTwiddler |= (1UL << 19);
+    //     Serial.println("Dial2 On");
+    // } else {
+    //     bitTwiddler &= ~(1UL << 19);
+    //     Serial.println("Dial2 Off");
+    // }
+    // if (digitalRead(YETIHEAD3) == HIGH) {  // Button pressed (since it's pulled up by default)
+    //     bitTwiddler |= (1UL << 20);
+    //     Serial.println("Dial3 On");
+    // } else {
+    //     bitTwiddler &= ~(1UL << 20);
+    //     Serial.println("Dial3 Off");
+    // }
+    if (digitalRead(YETIHEAD4) == HIGH) {  // Button pressed (since it's pulled up by default)
         bitTwiddler |= (1UL << 18);
+        Serial.println("Dial4 On");
     } else {
         bitTwiddler &= ~(1UL << 18);
-    }
-    if (digitalRead(YETIHEAD2) == HIGH) {  // Button pressed (since it's pulled up by default)
-        bitTwiddler |= (1UL << 19);
-    } else {
-        bitTwiddler &= ~(1UL << 19);
-    }
-    if (digitalRead(YETIHEAD3) == HIGH) {  // Button pressed (since it's pulled up by default)
-        bitTwiddler |= (1UL << 20);
-    } else {
-        bitTwiddler &= ~(1UL << 20);
-    }
-    if (digitalRead(YETIHEAD4) == HIGH) {  // Button pressed (since it's pulled up by default)
-        bitTwiddler |= (1UL << 21);
-    } else {
-        bitTwiddler &= ~(1UL << 21);
+        Serial.println("Dial4 Off");
     }
     if (digitalRead(YETIHEAD5) == HIGH) {  // Button pressed (since it's pulled up by default)
-        bitTwiddler |= (1UL << 22);
+        bitTwiddler |= (1UL << 19);
+        Serial.println("Dial5 On");
     } else {
-        bitTwiddler &= ~(1UL << 22);
+        bitTwiddler &= ~(1UL << 19);
+        Serial.println("Dial5 Off");
     }
     if (digitalRead(YETIHEAD6) == HIGH) {  // Button pressed (since it's pulled up by default)
-        bitTwiddler |= (1UL << 23);
+        bitTwiddler |= (1UL << 20);
+        Serial.println("Dial6 On");
     } else {
-        bitTwiddler &= ~(1UL << 23);
+        bitTwiddler &= ~(1UL << 20);
+        Serial.println("Dial6 Off");
     }
     if (digitalRead(YETIHEAD7) == HIGH) {  // Button pressed (since it's pulled up by default)
-        bitTwiddler |= (1UL << 24);
+        bitTwiddler |= (1UL << 21);
+        Serial.println("Dial7 On");
     } else {
-        bitTwiddler &= ~(1UL << 25);
+        bitTwiddler &= ~(1UL << 21);
+        Serial.println("Dial7 Off");
     }
     if (digitalRead(YETIHEAD8) == HIGH) {  // Button pressed (since it's pulled up by default)
-        bitTwiddler |= (1UL << 26);
+        bitTwiddler |= (1UL << 22);
+        Serial.println("Dial8 On");
     } else {
-        bitTwiddler &= ~(1UL << 26);
+        bitTwiddler &= ~(1UL << 22);
+        Serial.println("Dial8 Off");
     }
-    
+    Serial.println("\r\n");
     joystick.buttons(bitTwiddler);
 }
